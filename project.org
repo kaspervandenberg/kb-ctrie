@@ -1,0 +1,9 @@
+* Tests
+** Separate items
+*** TODO Store and retrieve single item
+*** TODO Store and retrieve multiple items
+** Multi level Trie
+*** Display Trie (for debugging)
+*** Hierarchical keys
+** Mutable CTrie
+** Persistence
