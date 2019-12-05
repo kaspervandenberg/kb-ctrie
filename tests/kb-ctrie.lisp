@@ -6,8 +6,13 @@
 
 ;; NOTE: To run this test file, execute `(asdf:test-system :kb-ctrie)' in your Lisp.
 
-(plan nil)
+(plan 1)
 
-;; blah blah blah.
+(subtest "Store & retrieve single value"
+  (is (retrieve
+       (store
+	(make-ctrie)
+	"value"))
+      "value")) 
 
 (finalize)
