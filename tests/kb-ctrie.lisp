@@ -9,10 +9,10 @@
 (plan 1)
 
 (subtest "Store & retrieve single value"
-  (is (retrieve
-       (store
-	(make-ctrie)
-	"value"))
-      "value")) 
+  (is
+   (retrieve (store (make-ctrie) "value"))
+   "value"
+   "Retrieved is stored")
+  )
 
 (finalize)
