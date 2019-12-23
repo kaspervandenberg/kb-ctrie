@@ -1,5 +1,18 @@
 (defpackage kb-ctrie
-  (:use :cl))
+  (:use :cl)
+  (:export :make-ctrie
+	   :store
+	   :retrieve))
 (in-package :kb-ctrie)
 
-;; blah blah blah.
+(defun make-ctrie ()
+  "No code needed"
+  nil)
+
+(defun store (ctrie value)
+  "Store `value`"
+  (cons ctrie value))
+
+(defun retrieve (ctrie)
+  "Retrieve a value previously store in `ctrie`"
+  (cdr ctrie))
