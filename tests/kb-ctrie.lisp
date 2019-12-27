@@ -19,6 +19,10 @@
   (ok
    (is-kb-ctrie (store (make-ctrie) "value"))
    "store returns a kb-ctrie")
+  (is-error
+   (store 'no-ctrie "value")
+   'not-a-kb-ctrie-error
+   "calling store on something that is not a ctrie should signal an error")
   )
 
 (finalize)
