@@ -13,6 +13,12 @@
    (retrieve (store (make-ctrie) "value"))
    "value"
    "Retrieved is stored")
+  (ok
+   (is-kb-ctrie (make-ctrie))
+   "make-ctrie creates kb-ctries")
+  (ok
+   (is-kb-ctrie (store (make-ctrie) "value"))
+   "store returns a kb-ctrie")
   )
 
 (finalize)
