@@ -1,9 +1,9 @@
 * Tests
 ** Separate items
-*** TODO Store and retrieve single item [2/6]
+*** TODO Store and retrieve single item [3/6]
 **** DONE Store and retrieve single item
 **** DONE Store and make-ctrie should return a ctrie
-**** TODO `Store` should signal condition on non-ctrie
+**** DONE `Store` should signal condition on non-ctrie
 **** TODO `Retrieve` should signal condition on non-ctrie
 **** TODO `Retrieve` should handle  no-value like GETHASH does
 **** TODO Decide expected behaviour of `Store` twice
