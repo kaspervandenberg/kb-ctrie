@@ -23,6 +23,10 @@
    (store 'no-ctrie "value")
    'not-a-kb-ctrie-error
    "calling store on something that is not a ctrie should signal an error")
+  (is-error
+   (retrieve 'no-ctrie)
+   'not-a-kb-ctrie-error
+   "calling retrieve on something that is not a ctrie should signal an error")
   )
 
 (finalize)

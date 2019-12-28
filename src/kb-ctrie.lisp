@@ -26,6 +26,7 @@
 
 (defun retrieve (ctrie)
   "Retrieve a value previously store in `ctrie`"
+  (assert-is-kb-ctrie ctrie)
   (cdr ctrie))
 
 (defun is-kb-ctrie (ctrie)
