@@ -3,6 +3,7 @@
   (:export :make-ctrie
 	   :store
 	   :retrieve
+	   :remove-from-ctrie
 	   :is-kb-ctrie
 	   :not-a-kb-ctrie-error))
 (in-package :kb-ctrie)
@@ -31,6 +32,11 @@
       (values
         (if foundp val default-not-found-value)
         foundp))))
+
+(defun remove-from-ctrie (ctrie)
+  "Remove a value from `ctrie`"
+  (assert-is-kb-ctrie ctrie)
+  (list (car ctrie) 'not-initialised))
 
 (defun is-kb-ctrie (ctrie)
   "Is `ctrie` a kb-ctrie? I.e. something one which `store` and `retrieve` can operate?"
