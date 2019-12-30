@@ -45,6 +45,14 @@
     (retrieve (make-ctrie) 'empty-placeholder)
     'empty-placeholder
     "retrieve on empty kb-ctrie should return the specified default")
+  (is-values
+   (let ((ctrie-with-first-val (store (make-ctrie) 'first-val)))
+     (let ((retrieved-first-value (retrieve ctrie-with-first-val))
+           (ctrie-with-second-val (store ctrie-with-first-val 'second-val)))
+               (let ((retrieved-second-value (retrieve ctrie-with-second-val)))
+         (values retrieved-first-value retrieved-second-value))))
+   '(first-val second-val)
+   "store should overwrite the first value with a second value")
   )
 
 (finalize)
