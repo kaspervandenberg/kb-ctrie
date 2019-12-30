@@ -53,6 +53,14 @@
          (values retrieved-first-value retrieved-second-value))))
    '(first-val second-val)
    "store should overwrite the first value with a second value")
+  (is-values
+   (let ((ctrie-with-val (store (make-ctrie) 'value)))
+     (let ((retrieved-value (retrieve ctrie-with-val)))
+       (let ((ctrie-with-removed-val (remove-from-ctrie ctrie-with-val)))
+	 (let ((retrieved-no-value (retrieve ctrie-with-removed-val)))
+	   (values retrieved-value retrieved-no-value)))))
+   '(value nil)
+   "remove should return the ctrie to no value")
   )
 
 (finalize)
