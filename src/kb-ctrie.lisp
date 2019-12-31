@@ -19,13 +19,15 @@
   "No code needed"
   '(kb-ctrie not-initialised))
 
-(defun store (ctrie value)
+(defun store (ctrie key value)
   "Store `value`"
+  (declare (ignorable key))
   (assert-is-kb-ctrie ctrie)
   (list (car ctrie) value))
 
-(defun retrieve (ctrie &optional (default-not-found-value nil))
+(defun retrieve (ctrie key &optional (default-not-found-value nil))
   "Retrieve a value previously store in `ctrie`"
+  (declare (ignorable key))
   (assert-is-kb-ctrie ctrie)
   (let ((val (cadr ctrie)))
     (let ((foundp (not (eq val 'not-initialised))))
@@ -33,8 +35,9 @@
         (if foundp val default-not-found-value)
         foundp))))
 
-(defun remove-from-ctrie (ctrie)
+(defun remove-from-ctrie (ctrie key)
   "Remove a value from `ctrie`"
+  (declare (ignorable key))
   (assert-is-kb-ctrie ctrie)
   (list (car ctrie) 'not-initialised))
 
