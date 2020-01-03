@@ -9,7 +9,7 @@
 (in-package :kb-ctrie)
 
 (define-condition not-a-kb-ctrie-error (error)
-  ((non-ctire-value
+  ((non-ctrie-value
      :reader non-ctrie-value
      :documentation "value that was passed instead of a kb-ctrie"))
   (:documentation
