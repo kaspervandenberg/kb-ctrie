@@ -17,29 +17,30 @@
 
 (defun make-ctrie ()
   "No code needed"
-  '(kb-ctrie not-initialised))
+  '(kb-ctrie))
 
 (defun store (ctrie key value)
   "Store `value`"
-  (declare (ignorable key))
   (assert-is-kb-ctrie ctrie)
-  (list (car ctrie) value))
+  (list (car ctrie)
+        (acons key value (cadr ctrie))))
 
 (defun retrieve (ctrie key &optional (default-not-found-value nil))
   "Retrieve a value previously store in `ctrie`"
-  (declare (ignorable key))
   (assert-is-kb-ctrie ctrie)
-  (let ((val (cadr ctrie)))
-    (let ((foundp (not (eq val 'not-initialised))))
-      (values
-        (if foundp val default-not-found-value)
-        foundp))))
+  (let ((stored-cons (assoc key (cadr ctrie) :test #'equal)))
+    (let ((foundp (consp stored-cons)))
+      (values (if foundp
+                (cdr stored-cons)
+                default-not-found-value)
+              foundp))))
 
 (defun remove-from-ctrie (ctrie key)
   "Remove a value from `ctrie`"
-  (declare (ignorable key))
   (assert-is-kb-ctrie ctrie)
-  (list (car ctrie) 'not-initialised))
+  (list (car ctrie)
+        (remove-if (lambda (x) (eq (car x) key))
+                   (cdr ctrie))))
 
 (defun is-kb-ctrie (ctrie)
   "Is `ctrie` a kb-ctrie? I.e. something one which `store` and `retrieve` can operate?"
