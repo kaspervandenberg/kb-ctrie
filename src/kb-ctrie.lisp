@@ -39,8 +39,7 @@
   "Remove a value from `ctrie`"
   (assert-is-kb-ctrie ctrie)
   (list (car ctrie)
-        (remove-if (lambda (x) (eq (car x) key))
-                   (cdr ctrie))))
+        (remove key (cadr ctrie) :key #'car)))
 
 (defun is-kb-ctrie (ctrie)
   "Is `ctrie` a kb-ctrie? I.e. something one which `store` and `retrieve` can operate?"
