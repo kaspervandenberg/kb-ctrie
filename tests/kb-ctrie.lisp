@@ -6,7 +6,7 @@
 
 ;; NOTE: To run this test file, execute `(asdf:test-system :kb-ctrie)' in your Lisp.
 
-(plan 1)
+(plan 2)
 
 (subtest "Store & retrieve single value"
   (is
@@ -61,18 +61,13 @@
 	   (values retrieved-value retrieved-no-value)))))
    '(value nil)
    "remove should return the ctrie to no value")
-  (is
-   (let ((ctrie
-	  (store
-	   (store
-	    (make-ctrie)
-	    'key-a 'val-a)
-	   'key-b 'val-b)))
-     (list
-      (retrieve ctrie 'key-a)
-      (retrieve ctrie 'key-b)))
-   '(val-a val-b)
-   "Store and retrieve values by multiple keys")
+  )
+  (subtest "Store & retrieve multiple values"
+    (is
+     (let ((ctrie (store (store (make-ctrie) 'key-a 'val-a) 'key-b 'val-b)))
+       (list (retrieve ctrie 'key-a) (retrieve ctrie 'key-b)))
+     '(val-a val-b)
+     "Store and retrieve values by multiple keys")
   )
 
 (finalize)
