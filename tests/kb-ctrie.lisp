@@ -68,6 +68,12 @@
        (list (retrieve ctrie 'key-a) (retrieve ctrie 'key-b)))
      '(val-a val-b)
      "Store and retrieve values by multiple keys")
+    (isnt
+     (retrieve
+      (store (make-ctrie) 'key 'value)
+      'different-key)
+     'value
+     "Retrieve should not retrieve values stored with different keys")
   )
 
 (finalize)
