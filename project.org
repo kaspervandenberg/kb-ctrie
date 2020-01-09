@@ -16,6 +16,7 @@
      key
 **** TODO After storing two items and remove one of them, retrieve should only be
      able to retrieve the one that was not removed
+**** TODO Store a key twice, then removing that key, should leave the ctrie empty
 **** TODO Store, retrieve, and remove should work in any order
 ** Multi level Trie
 *** Display Trie (for debugging)
