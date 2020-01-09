@@ -16,3 +16,11 @@
 *** Hierarchical keys
 ** Mutable CTrie
 ** Persistence
+** Performance
+*** Read performance counters about cache misses
+*** What is the effect of separating subtrees to different cores/processors?
+    This would avoid sharing mutable data.
+*** What is the effect of restricting CNode size (or avarage CNode size) to cache line size?
+    Cache lines are loaded as one from memory.
+*** Minimize data required to load
+*** Macros to generate different ctrie variants depending on intended use pattern and hardware
