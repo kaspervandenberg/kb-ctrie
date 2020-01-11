@@ -74,6 +74,10 @@
       'different-key)
      'value
      "Retrieve should not retrieve values stored with different keys")
+    (is
+      (retrieve (remove-from-ctrie (store (store (make-ctrie) 'key-a 'val-a) 'key-b 'val-b) 'key-b) 'key-a)
+      'val-a
+      "Remove should not remove other keys")
   )
 
 (finalize)
