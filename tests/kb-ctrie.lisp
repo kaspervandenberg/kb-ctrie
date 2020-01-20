@@ -78,6 +78,10 @@
      (retrieve (remove-from-ctrie (store (store (make-ctrie) 'key-a 'val-a) 'key-b 'val-b) 'key-b) 'key-a)
      'val-a
      "Remove should not remove other keys")
+    (is-values
+     (retrieve (remove-from-ctrie (store (store (make-ctrie) 'key-a 'value-first) 'key-a 'value-second) 'key-a) 'key-a)
+     '(nil nil)
+     "Removing a key with value that was overwritten should remove the key not reinstate the previous value")
     )
 
 (finalize)
