@@ -10,13 +10,13 @@
 **** DONE The second call to `store` should overwrite the earlier stored value
 **** DONE `Remove` should set the value to no value;
      a subsequent `retrieve` should behave the same as on a freshly created ctrie.
-*** TODO Store and retrieve multiple items [3/5]
+*** TODO Store and retrieve multiple items [4/5]
 **** DONE Store two items with different keys and retrieve them
 **** DONE Retrieve should not be able to retrieve an item stored with a different
      key
 **** DONE After storing two items and remove one of them, retrieve should only be
      able to retrieve the one that was not removed
-**** TODO Store a key twice, then removing that key, should leave the ctrie empty
+**** DONE Store a key twice, then removing that key, should leave the ctrie empty
 **** TODO Store, retrieve, and remove should work in any order
 ** Multi level Trie
 *** Display Trie (for debugging)
