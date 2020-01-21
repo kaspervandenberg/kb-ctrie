@@ -10,7 +10,10 @@
                "prove")
   :components ((:module "tests"
                 :components
-                ((:test-file "kb-ctrie"))))
+                ((:file "package")
+		 (:test-file "store-retrieve-single-value")
+		 (:test-file "store-retrieve-multiple-values")
+		 )))
   :description "Test system for kb-ctrie"
 
   :perform (test-op (op c) (symbol-call :prove-asdf :run-test-system c)))
