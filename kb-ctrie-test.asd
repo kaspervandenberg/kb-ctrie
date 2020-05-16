@@ -11,6 +11,7 @@
   :components ((:module "tests"
                 :components
                 ((:file "package")
+		 (:file "sequence")
 		 (:test-file "store-retrieve-single-value")
 		 (:test-file "store-retrieve-multiple-values")
 		 )))
