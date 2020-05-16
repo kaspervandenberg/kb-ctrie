@@ -1,11 +1,3 @@
-(defpackage kb-ctrie
-  (:use :cl)
-  (:export :make-ctrie
-	   :store
-	   :retrieve
-	   :remove-from-ctrie
-	   :is-kb-ctrie
-	   :not-a-kb-ctrie-error))
 (in-package :kb-ctrie)
 
 (define-condition not-a-kb-ctrie-error (error)

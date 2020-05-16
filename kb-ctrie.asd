@@ -4,13 +4,14 @@
 
 (defsystem "kb-ctrie"
   :version "0.1.0"
-  :author ""
-  :license ""
+  :author "Kasper van den Berg"
+  :license "MIT"
   :depends-on ()
   :components ((:module "src"
                 :components
-                ((:file "kb-ctrie"))))
-  :description ""
+                ((:file "package")
+		 (:file "kb-ctrie"))))
+  :description "Aleksander Prokopec's ctrie for Common Lisp"
   :long-description
   #.(read-file-string
      (subpathname *load-pathname* "README.md"))
