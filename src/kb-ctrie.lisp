@@ -9,7 +9,7 @@
 (in-package :kb-ctrie)
 
 (define-condition not-a-kb-ctrie-error (error)
-  ((non-ctire-value
+  ((non-ctrie-value
      :reader non-ctrie-value
      :documentation "value that was passed instead of a kb-ctrie"))
   (:documentation
@@ -17,26 +17,29 @@
 
 (defun make-ctrie ()
   "No code needed"
-  '(kb-ctrie not-initialised))
+  '(kb-ctrie))
 
-(defun store (ctrie value)
+(defun store (ctrie key value)
   "Store `value`"
   (assert-is-kb-ctrie ctrie)
-  (list (car ctrie) value))
+  (list (car ctrie)
+        (acons key value (cadr ctrie))))
 
-(defun retrieve (ctrie &optional (default-not-found-value nil))
+(defun retrieve (ctrie key &optional (default-not-found-value nil))
   "Retrieve a value previously store in `ctrie`"
   (assert-is-kb-ctrie ctrie)
-  (let ((val (cadr ctrie)))
-    (let ((foundp (not (eq val 'not-initialised))))
-      (values
-        (if foundp val default-not-found-value)
-        foundp))))
+  (let ((stored-cons (assoc key (cadr ctrie) :test #'equal)))
+    (let ((foundp (consp stored-cons)))
+      (values (if foundp
+                (cdr stored-cons)
+                default-not-found-value)
+              foundp))))
 
-(defun remove-from-ctrie (ctrie)
+(defun remove-from-ctrie (ctrie key)
   "Remove a value from `ctrie`"
   (assert-is-kb-ctrie ctrie)
-  (list (car ctrie) 'not-initialised))
+  (list (car ctrie)
+        (remove key (cadr ctrie) :key #'car)))
 
 (defun is-kb-ctrie (ctrie)
   "Is `ctrie` a kb-ctrie? I.e. something one which `store` and `retrieve` can operate?"
