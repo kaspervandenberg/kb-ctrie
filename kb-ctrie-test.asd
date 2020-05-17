@@ -14,6 +14,7 @@
 		 (:file "sequence")
 		 (:test-file "store-retrieve-single-value")
 		 (:test-file "store-retrieve-multiple-values")
+		 (:test-file "bucket")
 		 )))
   :description "Test system for kb-ctrie"
 
