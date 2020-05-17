@@ -10,6 +10,7 @@
   :components ((:module "src"
                 :components
                 ((:file "package")
+		 (:file "bucket")
 		 (:file "kb-ctrie"))))
   :description "Aleksander Prokopec's ctrie for Common Lisp"
   :long-description
