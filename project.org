@@ -21,10 +21,10 @@
 ** Multi level Trie
 *** TODO Use trie of nodes instead of list [1/8]
 **** DONE Bucket class
-**** TODO Calculate index in bucket from key, depth, and items in bucket
 **** TODO Store item at bucket index
 **** TODO Find item at bucket index
 **** TODO Remove item at bucket index
+**** TODO Calculate index in bucket from key, depth, and items in bucket
 **** TODO Node classes
 **** TODO Adding more than bucket size items results in trie of nodes
 **** TODO Removing last item from bucket results in removal of node
